@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Layout from "../components/Layout";
 
 const Deposit = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
   const [depositAmount, setDepositAmount] = useState("");
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState(user.balance);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 

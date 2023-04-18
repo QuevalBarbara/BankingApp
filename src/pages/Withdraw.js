@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Layout from "../components/Layout";
 
 const Withdraw = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
   const [withdrawAmount, setWithdrawAmount] = useState("");
-  const [balance, setBalance] = useState(1000); // initial balance amount
+  const [balance, setBalance] = useState(user.balance); // initial balance amount
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
