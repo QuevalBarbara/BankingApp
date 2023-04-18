@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Layout from "../components/Layout";
 
 const CreateAccount = () => {
   const [name, setName] = useState("");
@@ -42,7 +43,7 @@ const CreateAccount = () => {
   };
 
   return (
-    <>
+    <Layout>
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
@@ -115,7 +116,7 @@ const CreateAccount = () => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

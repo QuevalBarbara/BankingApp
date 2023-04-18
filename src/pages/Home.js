@@ -1,10 +1,11 @@
 import React from "react";
 import logo from "../bank.png";
+import Layout from "../components/Layout";
 
 
 const Home = () => {
   return (
-    <>
+    <Layout>
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
@@ -23,7 +24,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Layout from "../components/Layout";
 
 const Withdraw = () => {
   const [withdrawAmount, setWithdrawAmount] = useState("");
@@ -25,13 +26,13 @@ const Withdraw = () => {
   };
 
   return (
-    <>
+    <Layout>
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title text-center">Withdraw</h4>
+                <h4 className="card-title text-center">Withdraw Form</h4>
                 {successMessage && (
                   <div className="alert alert-success" role="alert">
                     {successMessage}
@@ -75,7 +76,7 @@ const Withdraw = () => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
