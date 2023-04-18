@@ -1,10 +1,19 @@
-import React, {useContext}from "react";
+import React from "react";
 import Layout from "../components/Layout";
-import UserContext from "../components/UserContext";
 
 const AllData = () => {
-  const msg = useContext(UserContext)
-  const user = JSON.parse(localStorage.getItem('user'));
+  const usernames = [];
+  for (var i = 0; i < localStorage.length; i++){
+    if (localStorage.key(i) != 'currentUser') {
+      var user = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      usernames.push(<p>Name : {user.name}</p>)
+      usernames.push(<p>Email : {user.email}</p>)
+      usernames.push(<p>Password : {user.password}</p>)
+      usernames.push(<p>Balance : {user.balance}</p>)
+      usernames.push(<br></br>)
+    }
+  }
+
   return (
     <Layout>
       <div className="container mt-5">
@@ -13,11 +22,8 @@ const AllData = () => {
             <div className="card">
               <div className="card-body">
                 <h4 className="card-title text-center">All Data</h4>
-                <p>Name : {user.name}</p>
-                <p>Email : {user.email}</p>
-                <p>Password : {user.password}</p>
-                <p>Balance : {user.balance}</p>
-              </div>
+                  { usernames }
+                </div>
             </div>
           </div>
         </div>

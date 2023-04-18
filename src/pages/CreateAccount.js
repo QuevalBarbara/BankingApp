@@ -1,19 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
-import UserContext from "../components/UserContext";
 
 const CreateAccount = () => {
-  var users = new Map()
-  for (var i = 0; i < localStorage.length; i++){
-    users.set(i,localStorage.getItem(localStorage.key(i)));
-  }
-  // const user = JSON.parse(localStorage.getItem('user'));
-  // const users = JSON.parse(localStorage.);
-  // const userName = user ? user.name : "";
-  // const userEmail = user ? user.email : "";
-  // const userPassword = user ? user.password : "";
-
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,6 +32,7 @@ const CreateAccount = () => {
       alert("Password must be at least 8 characters long.");
     } else {
       localStorage.setItem(name, JSON.stringify({name, email, password, balance}));
+      localStorage.setItem("currentUser", name);
       setSuccess(true);
     }
   };
@@ -53,32 +42,7 @@ const CreateAccount = () => {
     setEmail("");
     setPassword("");
     setSuccess(false);
-    // localStorage.removeItem('user');
   };
-
-console.log("Users:", users)
-
-// for (var i = 0; i < users.length; i++){
-//   const value = users.getItem(users.key(i))
-//   console.log(value);
-//   console.log("Name:", value.name);
-//   console.log("Email:", value.email);
-//   console.log("Password:", value.password);
-//   console.log("Balance:", value.balance);
-// }
-// for (const [key, value] of Object.entries(users)) {
-//   console.log(key, value);
-//   console.log("Name:", value.name);
-//   console.log("Email:", value.email);
-//   console.log("Password:", value.password);
-//   console.log("Balance:", value.balance);
-// }  
-
-// console.log("Name:", user.name);
-// console.log("Email:", user.email);
-// console.log("Password:", user.password);
-// console.log("Balance:", user.balance);
-
   return (
     <Layout>
       <div className="container mt-5">
@@ -88,7 +52,8 @@ console.log("Users:", users)
               <div className="card-body">
                 {success ? (
                   <>
-                    <h3 className="card-title">Account created successfully!</h3>
+                    <h3 className="card-title text-center">Account created successfully!</h3>
+                    <h6 className="card-text text-center"> You may now make your first deposit.</h6>
                     <button
                       className="btn btn-primary mt-3"
                       onClick={handleAddAnotherAccount}

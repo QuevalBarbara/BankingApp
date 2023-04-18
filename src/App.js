@@ -9,17 +9,12 @@ import AllData from "./pages/AllData";
 import Deposit from "./pages/Deposit";
 import Withdraw from "./pages/Withdraw";
 import NotFound from "./components/NotFound";
-import UserContext from "./components/UserContext";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const value = useMemo (() => ([user, setUser]), [user, setUser]);
-
   return (
     <Router>
       <div className="App">
         <Navbar />
-        <UserContext.Provider value={"hello"}>
           <Routes>
             <Route exact path="/" element={<Home/>}></Route>
             <Route path="/CreateAccount" element={<CreateAccount/>}></Route>
@@ -28,7 +23,6 @@ function App() {
             <Route path="/AllData" element={<AllData/>}></Route>
             <Route path="*" element={<NotFound/>}></Route>
           </Routes>
-        </UserContext.Provider>
         <Footer/>
       </div>
     </Router>

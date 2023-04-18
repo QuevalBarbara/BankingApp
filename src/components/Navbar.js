@@ -4,7 +4,7 @@ import logo from "../bank.png";
 
 function Navbar() {
   const location = useLocation();
-  const [isNavCollapsed, setIsNavCollapsed] = useState(true); // Add state for collapsed menu
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
   const pageLinks = useMemo(
     () => [
